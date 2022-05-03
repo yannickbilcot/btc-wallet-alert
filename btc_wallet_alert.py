@@ -98,16 +98,18 @@ Last transaction: `{last_transaction_amount} ({last_transaction_date})`""")
 
 
 if __name__ == '__main__':
-    logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s",
-    handlers=[
-        logging.FileHandler("debug.log"),
-        logging.StreamHandler()
-    ])
     parser = argparse.ArgumentParser(description='Bitcoin Wallet Alert')
     parser.add_argument("--wallet", required=True, help="wallet address to check")
     parser.add_argument("--telegram-notify", action="store_true", help="send a telegram notification")
     parser.add_argument('--time', nargs="?", const=1, default=60, type=int, help="time in seconds between successive check (default: 60 seconds)")
     args = parser.parse_args()
+
+    log_handler = [logging.StreamHandler()]
+    logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s",
+    handlers=[
+#       logging.FileHandler("debug.log"),
+        logging.StreamHandler()
+    ])
     
     wdir = sys.path[0]
     load_dotenv(f'{wdir}/.env')
