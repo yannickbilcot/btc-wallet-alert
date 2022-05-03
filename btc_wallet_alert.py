@@ -63,11 +63,11 @@ def check_wallet(wallet: str, period: int = 60, telegram_notify: bool = False):
         index = page_text.index("transacted") + 1
         transactions_number = page_text[index]
 
-		# get the last transaction amount
+        # get the last transaction amount
         soup_transaction = soup.select_one('div[direction="vertical"] > div > div:last-of-type')
         last_transaction_amount = soup_transaction.select('span')[-1].get_text()
         
-		# get the last transaction date
+        # get the last transaction date
         soup_transaction = soup.select_one('div[direction="vertical"] > div:nth-of-type(2)')
         last_transaction_date = soup_transaction('span')[-1].get_text()
 
