@@ -90,7 +90,7 @@ Last transaction: `{last_transaction_amount} ({last_transaction_date})`""")
                 logging.info(f"New number of transactions: {transactions_number}")
                 logging.info(f"The wallet changed by: {last_transaction_amount}")
                 if telegram_notify:
-                    send_telegram_msg(f"The wallet [{wallet[0:8]}]({url}) changed by `{last_transaction_amount}`")
+                    send_telegram_msg(f"🚨 The wallet [{wallet[0:8]}]({url}) changed by `{last_transaction_amount}`")
         else:
             logging.debug("No changes")
         time.sleep(period)
