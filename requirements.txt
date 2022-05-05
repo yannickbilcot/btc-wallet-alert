@@ -1,3 +1,4 @@
 beautifulsoup4==4.11.1
+discord_webhook==0.15.0
 python-dotenv==0.20.0
-requests==2.25.1
+requests==2.21.0
