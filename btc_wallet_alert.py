@@ -93,7 +93,7 @@ def check_wallet(
         last_transaction_date = soup_transaction('span')[-1].get_text()
 
         # compare the number of transactions with the previous number
-        if prev_transactions_number != transactions_number:
+        if prev_transactions_number != transactions_number and "confirm" not in last_transaction_amount.lower():
             prev_transactions_number = transactions_number
             if first_run:
                 first_run = False
